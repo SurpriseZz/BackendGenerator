@@ -10,7 +10,7 @@ const glob = require('glob');
  */
 module.exports = (app) => {
     // 读取 app/controller/**/**.js 目录下的所有文件
-    const controllerPath = path.resolve(app.businessPath, `.${sep}middleware`);
+    const controllerPath = path.resolve(app.businessPath, `.${sep}controller`);
     const fileList = glob.sync(path.resolve(controllerPath, `.${sep}**${sep}*.js`));
 
     // 遍历所有文件目录 ， 加载所有 app.middleware 下
@@ -37,8 +37,6 @@ module.exports = (app) => {
                 tempController = tempController[names[i]];
             }
         }
-
-
     })
     app.controller = controller;
 }
