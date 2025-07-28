@@ -57,6 +57,7 @@ module.exports = {
 
         // 注册全局中间件
         // app/middleware.js
+
         
         try {
             require(`${app.businessPath}${sep}middleware.js`)(app)
