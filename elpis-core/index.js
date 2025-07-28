@@ -39,28 +39,28 @@ module.exports = {
 
         // 环境配置
         app.env = env();
-        console.log('环境：',app.env.getEnv())
+        console.log('环境：', app.env.getEnv())
 
         // 加载loader
         middlewareLoader(app);
-        console.log('加载中间件完成',app.middleware)
+        console.log('加载中间件完成', app.middleware)
         routerSchemaLoader(app);
-        console.log('加载路由完成',app.routerSchema)
+        console.log('加载路由完成', app.routerSchema)
         controllerLoader(app);
-        console.log('加载控制器完成',app.controller)
+        console.log('加载控制器完成', app.controller)
         serviceLoader(app);
-        console.log('加载服务完成',app.service)
+        console.log('加载服务完成', app.service)
         configLoader(app);
-        console.log('加载配置完成',app.config)
+        console.log('加载配置完成', app.config)
         extendLoader(app);
-        console.log('加载扩展完成',app)
+        console.log('加载扩展完成', app)
 
         // 注册全局中间件
         // app/middleware.js
         try {
             require(`${app.businessPath}${sep}middleware.js`)(app)
-            console.log('注册全局中间件完成',app.middleware)
-        }catch (e) {
+            console.log('注册全局中间件完成', app.middleware)
+        } catch (e) {
             console.log('没有找到全局中间件')
         }
         // 注册路由

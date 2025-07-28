@@ -17,10 +17,10 @@ module.exports = (app) => {
     // 注册所有路由
     const fileList = glob.sync(path.resolve(routerPath, `.${sep}**${sep}**.js`))
     fileList.forEach(file => {
-        require(path.resolve(file))(app,router)
+        require(path.resolve(file))(app, router)
     })
     // 路由兜底 （健壮性）
-    router.get('*',async (ctx,next) =>{
+    router.get('*', async (ctx, next) => {
         ctx.status = 302;//临时重定向
         ctx.redirect(`${app?.options?.homePage ?? '/'}`);
 

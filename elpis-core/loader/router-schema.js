@@ -1,6 +1,6 @@
 const path = require('path')
 const glob = require('glob')
-const {sep} = path
+const { sep } = path
 
 /**
  * roter-schema loader

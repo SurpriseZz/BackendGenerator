@@ -1,5 +1,5 @@
 const path = require('path');
-const {sep} = path;
+const { sep } = path;
 const glob = require('glob');
 
 /**

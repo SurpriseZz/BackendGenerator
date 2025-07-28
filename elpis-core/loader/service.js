@@ -20,20 +20,20 @@ module.exports = (app) => {
         let name = path.resolve(file);
         // 截取路径
 
-        name = name.substring(name.lastIndexOf(`service${sep}`) + `service${sep}`.length,name.lastIndexOf('.'))
+        name = name.substring(name.lastIndexOf(`service${sep}`) + `service${sep}`.length, name.lastIndexOf('.'))
         // 把 '-' 统一改成驼峰
-        name = name.replace(/[_-][a-z]/ig,(s) => s.substring(1).toUpperCase())
+        name = name.replace(/[_-][a-z]/ig, (s) => s.substring(1).toUpperCase())
         // 挂载middleware 到内存 app 对象中
 
         let tempService = service;
         const names = name.split(sep);
         //将 app/middleware/a/b/c.js 转换成 app.service.a.b.c
-        for (let i = 0; i < names.length; i++){
-            if (i === names.length - 1){
+        for (let i = 0; i < names.length; i++) {
+            if (i === names.length - 1) {
                 const ServiceMoule = require(path.resolve(file))(app)
                 tempService[names[i]] = new ServiceMoule();
             } else {
-                if(!tempService[names[i]]) tempService[names[i]] = {};
+                if (!tempService[names[i]]) tempService[names[i]] = {};
                 tempService = tempService[names[i]];
             }
         }

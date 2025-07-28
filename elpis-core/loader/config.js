@@ -1,5 +1,5 @@
 const path = require('path')
-const {sep} = path;
+const { sep } = path;
 
 /**
  * config loader
@@ -21,7 +21,7 @@ module.exports = (app) => {
     // 获取default.config
     let defaultConfig = {};
     try {
-        defaultConfig = require(path.resolve(configPath, `.${sep}config.default.js```))
+        defaultConfig = require(path.resolve(configPath, `.${sep}config.default.js`))
     } catch (e) {
         console.log('没有找到默认配置文件')
     }
@@ -34,7 +34,7 @@ module.exports = (app) => {
         } else if (app.env.isBeta()) {
             // 测试环境
             envConfig = require(path.resolve(configPath, `.${sep}config.beta.js`))
-        } else if (app.env.isProduction) {
+        } else if (app.env.isProduction()) {
             // 生产环境
             envConfig = require(path.resolve(configPath, `.${sep}config.prod.js`))
         }
