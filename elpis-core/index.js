@@ -22,12 +22,12 @@ module.exports = {
      *     homePath //项目首页
      * }
      */
-    start: (option = {}) => {
+    start: (options = {}) => {
 
         // koa 实例
         const app = new Koa();
         // 应用配置  
-        app.option = option;
+        app.options = options;
 
 
         // 基础路径

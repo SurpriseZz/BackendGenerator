@@ -5,7 +5,9 @@ module.exports = (app) => {
        * @param ctx
        */
       async renderPage(ctx){
-          await ctx.render(`output/entry.${ctx.params.page}`)
+          await ctx.render(`output/entry.${ctx.params.page}`,{
+              name: app.options?.name,
+          })
       }
 
   }

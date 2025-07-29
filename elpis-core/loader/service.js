@@ -10,7 +10,7 @@ const glob = require('glob');
  */
 module.exports = (app) => {
     // 读取 app/service/**/**.js 目录下的所有文件
-    const servicePath = path.resolve(app.businessPath, `.${sep}middleware`);
+    const servicePath = path.resolve(app.businessPath, `.${sep}service`);
     const fileList = glob.sync(path.resolve(servicePath, `.${sep}**${sep}*.js`));
 
     // 遍历所有文件目录 ， 加载所有 app.middleware 下

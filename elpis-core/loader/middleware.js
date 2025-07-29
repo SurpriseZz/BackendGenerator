@@ -20,14 +20,15 @@ module.exports = (app) => {
         let name = path.resolve(file);
         // 截取路径
 
+        //将 app/middleware/a/b/c.js 转换成 app.middleware.a.b.c
         name = name.substring(name.lastIndexOf(`middleware${sep}`) + `middlewares${sep}`.length,name.lastIndexOf('.'))
         // 把 '-' 统一改成驼峰
         name = name.replace(/[_-][a-z]/ig,(s) => s.substring(1).toUpperCase())
         // 挂载middleware 到内存 app 对象中
-
+        //     a/b/c 转换成 a.b.c
         let tempMiddleware = middlewares;
+        // a/b/c ==>  [a,b,c]
         const names = name.split(sep);
-        //将 app/middleware/a/b/c.js 转换成 app.middleware.a.b.c
         for (let i = 0; i < names.length; i++){
             if (i === names.length - 1){
                 tempMiddleware[names[i]] = require(path.resolve(file))(app);
@@ -36,8 +37,6 @@ module.exports = (app) => {
                 tempMiddleware = tempMiddleware[names[i]];
             }
         }
-
-
     })
     app.middlewares = middlewares
 }
