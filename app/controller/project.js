@@ -1,18 +1,16 @@
 module.exports = (app) => {
-    return class ProjectController {
+    const BaseController = require('./base')(app)
+    return class ProjectController extends BaseController{
         /**
          * 获取项目列表
          * @param ctx
          */
         async getList(ctx){
-            const { project: ProjectService } = app.service;
-            const res = await ProjectService.getList();
-            ctx.status = 200;
-            ctx.body = {
-                success: true,
-                data: res,
-                metadata:{}
-            }
+            const { proj_key: projKey} = ctx.request.query
+            console.log('projKey',projKey)
+            const { project: ProjectService } = this.service;
+            const projectList = await ProjectService.getList();
+            this.success(ctx,projectList);
         }
 
     }

@@ -30,6 +30,6 @@ module.exports = (app) => {
         }
 
         // 挂载 extend 到 app 上
-        app[name] = require(path.resolve(file)(app))
+        app[name] = require(path.resolve(file))(app)
     })
 }

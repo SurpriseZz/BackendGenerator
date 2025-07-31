@@ -43,15 +43,15 @@ module.exports = {
 
         // 加载loader
         middlewareLoader(app);
-        console.log('加载中间（middleware）件完成', app.middleware)
+        console.log('加载中间（middleware）件完成', app.middlewares)
         routerSchemaLoader(app);
         console.log('加载路由规则(routerSchema)完成', app.routerSchema)
-        controllerLoader(app);
-        console.log('加载控制器(controller)完成', app.controller)
         serviceLoader(app);
         console.log('加载服务（service）完成', app.service)
         configLoader(app);
         console.log('加载配置（config）完成', app.config)
+        controllerLoader(app);
+        console.log('加载控制器(controller)完成', app.controller)
         extendLoader(app);
         console.log('加载扩展完成', app)
 
@@ -67,7 +67,7 @@ module.exports = {
         }
         // 注册路由
         routerLoader(app);
-
+        console.log('注册路由完成', app.route)
         // 启动服务
         try {
             const port = process.env.PORT || 8080;

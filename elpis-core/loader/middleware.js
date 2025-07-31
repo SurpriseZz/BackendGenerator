@@ -21,7 +21,7 @@ module.exports = (app) => {
         // 截取路径
 
         //将 app/middleware/a/b/c.js 转换成 app.middleware.a.b.c
-        name = name.substring(name.lastIndexOf(`middleware${sep}`) + `middlewares${sep}`.length,name.lastIndexOf('.'))
+        name = name.substring(name.lastIndexOf(`middleware${sep}`) + `middleware${sep}`.length,name.lastIndexOf('.'))
         // 把 '-' 统一改成驼峰
         name = name.replace(/[_-][a-z]/ig,(s) => s.substring(1).toUpperCase())
         // 挂载middleware 到内存 app 对象中
