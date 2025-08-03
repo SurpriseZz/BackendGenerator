@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="/static/normalize.css" rel="stylesheet">
+    <link href="/static/logo.png" rel="icon" type="image/x-icon">
+    <title>{{name}}</title>
+</head>
+<body style="margin:0">
+<div id="root"></div>
+<input id="env" value="{{env}}" style="display: none">
+<input id="options" value="{{options}}" style="display: none">
+</body>
+<script type="text/javascript">
+    try {
+        window.env = document.getElementById('env').value;
+        window.options = JSON.parse(document.getElementById('options').value);
+    } catch (e) {
+        console.log(e)
+    }
+
+</script>
+</html>

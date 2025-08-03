@@ -67,7 +67,7 @@ module.exports = {
         }
         // 注册路由
         routerLoader(app);
-        console.log('注册路由完成', app.route)
+        console.log('注册路由完成', app.routes)
         // 启动服务
         try {
             const port = process.env.PORT || 8080;

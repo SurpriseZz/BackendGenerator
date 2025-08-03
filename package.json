@@ -7,7 +7,9 @@
     "lint": "eslint --quiet --ext js,vue .",
     "dev": "cross-env _ENV=local  nodemon ./index.js",
     "beta": "cross-env _ENV=beta  node ./index.js",
-    "prod": "cross-env _ENV=production node ./index.js"
+    "prod": "cross-env _ENV=production node ./index.js",
+    "build:dev": "node --max_old_space_size=4096 ./app/webpack/dev.js",
+    "build:prod": "node ./app/webpack/prod.js"
   },
   "repository": {
     "type": "git",
