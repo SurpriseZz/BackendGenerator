@@ -42,16 +42,16 @@ module.exports = {
         console.log('环境：', app.env.getEnv())
 
         // 加载loader
-        middlewareLoader(app);
-        console.log('加载中间（middleware）件完成', app.middlewares)
-        routerSchemaLoader(app);
-        console.log('加载路由规则(routerSchema)完成', app.routerSchema)
-        serviceLoader(app);
-        console.log('加载服务（service）完成', app.service)
         configLoader(app);
         console.log('加载配置（config）完成', app.config)
+        middlewareLoader(app);
+        console.log('加载中间（middleware）件完成', app.middlewares)
+        serviceLoader(app);
+        console.log('加载服务（service）完成', app.service)
         controllerLoader(app);
         console.log('加载控制器(controller)完成', app.controller)
+        routerSchemaLoader(app);
+        console.log('加载路由规则(routerSchema)完成', app.routerSchema)
         extendLoader(app);
         console.log('加载扩展完成', app)
 
