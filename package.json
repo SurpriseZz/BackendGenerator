@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --quiet --ext js,vue .",
+    "test": "cross-env _ENV=local mocha test/**/*.js",
     "dev": "cross-env _ENV=local  nodemon ./index.js",
     "beta": "cross-env _ENV=beta  node ./index.js",
     "prod": "cross-env _ENV=production node ./index.js",

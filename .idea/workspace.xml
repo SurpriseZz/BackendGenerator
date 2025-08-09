@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="71903cef-228a-4d4d-a1b3-188898324ff4" name="更改" comment="feat:新增config配置和全局middleware配置">
+      <change afterPath="$PROJECT_DIR$/docs/dashboard-model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Elpis.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elpis-core/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/elpis-core/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="30PCnM58V57yEGdyOn8pliyou1E" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;24.4.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;24.1.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/core&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\DevelopmentTool\\IntelliJ IDEA 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="beta" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="beta" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.beta" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="71903cef-228a-4d4d-a1b3-188898324ff4" name="更改" comment="" />
+      <created>1753519994029</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753519994029</updated>
+      <workItem from="1753519995466" duration="436000" />
+      <workItem from="1753520448410" duration="20000" />
+      <workItem from="1753520493554" duration="18000" />
+      <workItem from="1753520524505" duration="3887000" />
+      <workItem from="1753604139222" duration="10043000" />
+      <workItem from="1753669679393" duration="82000" />
+      <workItem from="1753691548205" duration="413000" />
+      <workItem from="1753705893175" duration="2891000" />
+      <workItem from="1753708816849" duration="1373000" />
+      <workItem from="1753750667552" duration="2768000" />
+      <workItem from="1753779849847" duration="1313000" />
+      <workItem from="1753783460721" duration="31000" />
+      <workItem from="1753792134353" duration="5881000" />
+      <workItem from="1753803075306" duration="33000" />
+      <workItem from="1753837942858" duration="537000" />
+      <workItem from="1753843430621" duration="12000" />
+      <workItem from="1753878907759" duration="4070000" />
+      <workItem from="1753924004565" duration="2503000" />
+      <workItem from="1753965266002" duration="4752000" />
+      <workItem from="1754011591315" duration="1512000" />
+      <workItem from="1754052168885" duration="1913000" />
+      <workItem from="1754128340222" duration="14321000" />
+      <workItem from="1754224784315" duration="3370000" />
+      <workItem from="1754268458121" duration="1566000" />
+      <workItem from="1754298484181" duration="2625000" />
+      <workItem from="1754301695626" duration="1167000" />
+      <workItem from="1754305280102" duration="4253000" />
+      <workItem from="1754356050103" duration="348000" />
+      <workItem from="1754393814899" duration="3557000" />
+      <workItem from="1754442094628" duration="935000" />
+      <workItem from="1754479074291" duration="2855000" />
+      <workItem from="1754535239901" duration="17000" />
+      <workItem from="1754570016861" duration="593000" />
+      <workItem from="1754616108348" duration="39000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="feature/dsl" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat：完成 elpis-core开发" />
+    <MESSAGE value="feat:新增config配置和全局middleware配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:新增config配置和全局middleware配置" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

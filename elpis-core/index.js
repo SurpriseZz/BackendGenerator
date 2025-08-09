@@ -43,17 +43,17 @@ module.exports = {
 
         // 加载loader
         configLoader(app);
-        console.log('加载配置（config）完成', app.config)
+        // console.log('加载配置（config）完成', app.config)
         middlewareLoader(app);
-        console.log('加载中间（middleware）件完成', app.middlewares)
+        // console.log('加载中间（middleware）件完成', app.middlewares)
         serviceLoader(app);
-        console.log('加载服务（service）完成', app.service)
+        // console.log('加载服务（service）完成', app.service)
         controllerLoader(app);
-        console.log('加载控制器(controller)完成', app.controller)
+        // console.log('加载控制器(controller)完成', app.controller)
         routerSchemaLoader(app);
-        console.log('加载路由规则(routerSchema)完成', app.routerSchema)
+        // console.log('加载路由规则(routerSchema)完成', app.routerSchema)
         extendLoader(app);
-        console.log('加载扩展完成', app)
+        // console.log('加载扩展完成', app)
 
         // 注册全局中间件
         // app/middleware.js
@@ -61,13 +61,13 @@ module.exports = {
         
         try {
             require(`${app.businessPath}${sep}middleware.js`)(app)
-            console.log('注册全局中间件完成', app.middleware)
+            // console.log('注册全局中间件完成', app.middleware)
         } catch (e) {
-            console.log('没有找到全局中间件')
+            // console.log('没有找到全局中间件')
         }
         // 注册路由
         routerLoader(app);
-        console.log('注册路由完成', app.routes)
+        // console.log('注册路由完成', app.routes)
         // 启动服务
         try {
             const port = process.env.PORT || 8080;
@@ -77,6 +77,8 @@ module.exports = {
         } catch (e) {
             console.log(e)
         }
+
+        return app;
     }
 
 }
