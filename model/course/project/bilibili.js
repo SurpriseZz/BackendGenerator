@@ -2,7 +2,7 @@
 module.exports = {
     name: 'B站课堂',
     desc: 'B站课程管理系统',
-    homePage: '',
+    homePage: '/todo?proj_key=bilibili&key=video',
     menu: [
         {
             key: 'video',
@@ -11,7 +11,7 @@ module.exports = {
             key: 'user',
             name: '用户管理（B站）'
         }, {
-            key: '',
+            key: 'resource',
             name: '课程资料',
             menuType: 'module',
             moduleType: 'sider',

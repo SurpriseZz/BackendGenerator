@@ -4,7 +4,7 @@
 module.exports = {
     name: '拼多多',
     desc: '拼多多电商系统',
-    homePage: '',
+    homePage: '/todo?proj_key=pdd&key=product',
     menu: [
         {
             key: 'product',
@@ -19,7 +19,7 @@ module.exports = {
             name: '数据分析（拼多多）',
             menuType: 'module',
             moduleType: 'sider',
-            siderConfig: [{
+            siderConfig: {
                 menu: [{
                     key: 'analysis',
                     name: '电商罗盘',
@@ -31,17 +31,19 @@ module.exports = {
                 }, {
                     key: 'sider-search',
                     name: '信息查询',
+                    menuType: 'module',
                     moduleType: 'iframe',
                     iframeConfig: {
                         path: 'http://www.baidu.com'
                     }
                 }]
-            }]
+            }
         },
         {
             key: 'search',
             name: '信息查询',
             moduleType: 'iframe',
+            menuType: 'module',
             iframeConfig: {
                 path: 'http://www.baidu.com'
             }

@@ -16,10 +16,10 @@ module.exports = (app) => {
         const {body, query, headers} = ctx.request;
         const {params, path, method} = ctx;
 
-        app.logger.info(`[${method} ${path}] body: ${JSON.stringify(body)}`)
-        app.logger.info(`[${method} ${path}] body: ${JSON.stringify(query)}`)
-        app.logger.info(`[${method} ${path}] body: ${JSON.stringify(params)}`)
-        app.logger.info(`[${method} ${path}] body: ${JSON.stringify(headers)}`)
+        // app.logger.info(`[${method} ${path}] body: ${JSON.stringify(body)}`)
+        // app.logger.info(`[${method} ${path}] body: ${JSON.stringify(query)}`)
+        // app.logger.info(`[${method} ${path}] body: ${JSON.stringify(params)}`)
+        // app.logger.info(`[${method} ${path}] body: ${JSON.stringify(headers)}`)
 
         const schema = app.routerSchema[path]?.[method.toLowerCase()];
         if (!schema) {
@@ -63,7 +63,7 @@ module.exports = (app) => {
             ctx.body = {
                 success: false,
                 message: `request validate fail: ${ajv.errorsText(validate.errors)}`,
-                code: 445,
+                code: 442,
             }
             return;
         }

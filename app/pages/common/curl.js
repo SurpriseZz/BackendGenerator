@@ -1,19 +1,19 @@
 const md5 = require('md5');
-import {ElMessage} from 'element-plus'
+import { ElMessage } from 'element-plus'
 import axios from 'axios'
 /**
  * 前端封装的curl 方法
  */
 const curl = ({
-                  url,// 请求地址
-                  method = 'post',// 请求方法
-                  headers = {},// 请求头
-                  query = {},// 请求数据
-                  data = {},// 请求数据
-                  responseType = 'json',// 响应数据类型
-                  timeout = 60000,// 超时时间
-                  errorMessage = '请求超时',// 失败提示语
-              }) => {
+    url,// 请求地址
+    method = 'post',// 请求方法
+    headers = {},// 请求头
+    query = {},// 请求数据
+    data = {},// 请求数据
+    responseType = 'json',// 响应数据类型
+    timeout = 60000,// 超时时间
+    errorMessage = '请求超时',// 失败提示语
+}) => {
     // 接口动态签名处理
     const signKey = 'asd23rasd33rferf23rf23234';
     const st = Date.now();
@@ -37,11 +37,11 @@ const curl = ({
     return axios.request(ajaxStting).then((response) => {
         const resData = response.data || {};
         // 后端api返回格式
-        const {success} = resData;
+        const { success } = resData;
 
         //失败
         if (!success) {
-            const {code, message} = resData;
+            const { code, message } = resData;
 
             if (code === 442) {
                 ElMessage.error('请求参数异常');
@@ -62,10 +62,10 @@ const curl = ({
             });
         }
         //成功
-        const {data, metadata} = resData;
-        return Promise.resolve({success, data, metadata})
+        const { data, metadata } = resData;
+        return Promise.resolve({ success, data, metadata })
     }).catch((error) => {
-        const {message} = error;
+        const { message } = error;
         if (message.match(/timeout/)) {
             return Promise.resolve({
                 message: 'Request Timeout',

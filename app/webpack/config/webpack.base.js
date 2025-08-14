@@ -109,8 +109,8 @@ module.exports = {
          * 把js 文件打包成3类
          * 1、vendor：第三方lib库，基本不会改动，除非依赖版本升级
          * 2、common：业务组建代码的公共部分抽出来，改动较少
-         * 3、entry。{page}：不用页面entry里的业务组建代码的差异部分，会经常改动
-         * 目的：把改动和引用频率不一样的js区分出来，以达到根号利用浏览器缓存的效果
+         * 3、entry.{page}：不用页面entry里的业务组建代码的差异部分，会经常改动
+         * 目的：把改动和引用频率不一样的js区分出来，以达到更好利用浏览器缓存的效果
          */
         splitChunks: {
             chunks: "all",//对同步和一步模块都进行分割
@@ -125,6 +125,7 @@ module.exports = {
                     reuseExistingChunk: true,//复用已有的公共模块
                 },
                 common: { //公共模块
+                    test:/[\\/]common|widgets[\\/]/,
                     name: "common",
                     minChunks: 2,//被2个以上引用被归为公共模块  （前提条件：最少被引用的数量）
                     minSize: 1,//最小分割文件大小 （1byte）

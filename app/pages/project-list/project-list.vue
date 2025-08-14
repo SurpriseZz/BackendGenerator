@@ -12,11 +12,7 @@
           </div>
           <!-- 展示 project -->
           <el-row flex class="project-list">
-            <el-card
-              v-for="projItem in item.project"
-              :key="projItem.key"
-              class="project-card"
-            >
+            <el-card v-for="projItem in item.project" :key="projItem.key" class="project-card">
               <template #header>
                 <div class="title">
                   <span>{{ projItem.name }}</span>
@@ -27,9 +23,7 @@
               </div>
               <template #footer>
                 <el-row justify="end">
-                  <el-button link type="primary" @click="onEnter(projItem)"
-                    >进入</el-button
-                  >
+                  <el-button link type="primary" @click="onEnter(projItem)">进入</el-button>
                 </el-row>
               </template>
             </el-card>
@@ -62,11 +56,11 @@ async function getModelList() {
 
   modelList.value = res.data;
 
-  console.log("modelList", modelList.value);
 }
 
 const onEnter = (projItem) => {
-  console.log(`跳转到${projItem.name}`);
+  const { origin } = window.location;
+  window.open(`${origin}/view/dashboard#${projItem.homePage}`)
 };
 
 onMounted(() => {
@@ -83,6 +77,7 @@ onMounted(() => {
     font-weight: bold;
     color: #e5e5e5;
   }
+
   .divider {
     margin-top: 10px;
     border-bottom: 1px dashed #d7d7d7;
@@ -90,24 +85,26 @@ onMounted(() => {
   }
 }
 
-.project-list{
-    margin: 0 50px;
+.project-list {
+  margin: 0 50px;
 
-    .project-card{
-        margin-right: 30px;
-        margin-bottom: 20px;
-        width: 300px;
-        .title{
-            font-size: 17px;
-            font-weight: bold;
-            color: #47a2ff;
-        }
-        .content{
-            height: 70px;
-            color: darkgrey;
-            font-size: 15px;
-            overflow: auto;
-        }
+  .project-card {
+    margin-right: 30px;
+    margin-bottom: 20px;
+    width: 300px;
+
+    .title {
+      font-size: 17px;
+      font-weight: bold;
+      color: #47a2ff;
     }
+
+    .content {
+      height: 70px;
+      color: darkgrey;
+      font-size: 15px;
+      overflow: auto;
+    }
+  }
 }
 </style>
