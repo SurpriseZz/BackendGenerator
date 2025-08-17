@@ -12,7 +12,12 @@ module.exports = {
         },
         {
             key: 'client',
-            name: '客户管理（拼多多）'
+            name: '客户管理（拼多多）',
+            moduleType: 'schema',
+            schemaConfig: {
+                api: '/api/client',
+                schema: {}
+            }
         },
         {
             key: 'data',
@@ -60,9 +65,10 @@ module.exports = {
                         key: 'tags',
                         name: '标签',
                         menuType: 'module',
-                        moduleType: 'custom',
-                        customConfig: {
-                            path: '/todo'
+                        moduleType: 'schema',
+                        schemaConfig: {
+                            api: '/api/client',
+                            schema: {}
                         }
                     }]
                 }]
