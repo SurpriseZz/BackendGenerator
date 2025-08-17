@@ -74,7 +74,7 @@ watch(() => route.query.key, () => {
 watch(() => menuStore.menuList, () => {
   setActiveKey();
   setMenuList();
-})
+},{deep:true})
 onMounted(() => {
   setActiveKey();
   setMenuList();
