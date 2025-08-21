@@ -26,7 +26,10 @@ module.exports = (app) => {
     // 引入异常捕获中间件
     app.use(app.middlewares.errorHandler)
     // 引入api签名合法性校验
-    // app.use(app.middlewares.apiSignVerify)
+    app.use(app.middlewares.apiSignVerify)
     //api参数校验
     app.use(app.middlewares.apiParamsVerify)
+    //项目处理中间件
+    app.use(app.middlewares.projectHandler)
+
 }

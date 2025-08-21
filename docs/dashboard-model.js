@@ -41,9 +41,45 @@
                     key: {
                         ...schma,//标准 schema 配置
                         type: '',//字段类型
-                        label: ''// 字段中文名称
+                        label: '',// 字段中文名称
+                        // 字段在 table 中的相关配置
+                        tableOption:{
+                            ...elTableColumnConfig, //标准的 el-table-conlumn 配置
+                            visiable:true, //是否在 table 中显示 默认为true，为false时不在啊表单中展示
+                        },
+                        //table 相关配置
+                        tableConfig:{
+                            headerButtons:[{
+                                lable:'',//按钮中文名
+                                eventKey:'',//按钮时间名
+                                eventOption:{},//按钮事件具体配置
+                                ...elButtonConfig, //标准的 el-button 配置
+
+                            },...],
+                            rowButtons:[{
+                                lable:'',//按钮中文名
+                                eventKey:'',//按钮时间名
+                                eventOption:{
+                                    // 当 paramKey = ‘remove’
+                                    params:{
+                                        //paramKey = 参数的值
+                                        // rowValueKey = 参数值（当格式为 schema::tableKey的时候，到table种找响应的字段）
+                                        paramKey:rowValueKey
+                                    }
+
+
+                                },//按钮事件具体配置
+                                ...elButtonConfig, //标准的 el-button 配置
+                            },...]
+                        },
+                        serchOption:{},
+                        formOption:{}
+
                     }
+
+
                 }
+
             },
             tableConfig: {},//table相关配置
             searchConfig: {},//search相关配置

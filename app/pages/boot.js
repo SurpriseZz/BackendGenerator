@@ -7,7 +7,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 import './asserts/custom.css'
 import pinia from '$store'
 
-import { createRouter, createWebHashHistory} from 'vue-router'
+import { createRouter, createWebHistory} from 'vue-router'
 
 /**
  * vue 页面主入口 用于启动vue
@@ -33,7 +33,7 @@ export default (pageComponent, {routes, libs} = {}) => {
     if (routes && routes.length) {
         // 页面路由
         const router = createRouter({
-            history: createWebHashHistory(),//利用hash 模式
+            history: createWebHistory(),//利用history 模式
             routes
         })
         app.use(router)
