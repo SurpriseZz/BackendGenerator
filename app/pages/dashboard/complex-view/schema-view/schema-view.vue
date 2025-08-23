@@ -1,30 +1,48 @@
 <template>
-    <el-row class="schema-view">
-        <search-panel></search-panel>
-        <table-panel></table-panel>
-    </el-row>
+  <el-row class="schema-view">
+    <search-panel
+      v-if="
+        searchSchema?.properties &&
+        Object.keys(searchSchema.properties).length > 0
+      "
+      @search="onSearch"
+    ></search-panel>
+    <table-panel @operate="onTableOperate"></table-panel>
+  </el-row>
 </template>
 
 <script setup>
-import { provide } from 'vue'
-import SearchPanel from './complex-view/search-panel/search-panel.vue';
-import TablePanel from './complex-view/table-panel/table-panel.vue';
-import { useSchema } from './hook/schema.js';
+import { provide, ref } from "vue";
+import SearchPanel from "./complex-view/search-panel/search-panel.vue";
+import TablePanel from "./complex-view/table-panel/table-panel.vue";
+import { useSchema } from "./hook/schema.js";
 
-const { api, tableSchema, tableConfig } = useSchema();
+const { api, tableSchema, tableConfig, searchSchema, searchConfig } =
+  useSchema();
 
-provide('schemaViewData', {
-    api,
-    tableSchema,
-    tableConfig
-})
+const apiParmas = ref({});
+provide("schemaViewData", {
+  api,
+  apiParmas,
+  tableSchema,
+  tableConfig,
+  searchSchema,
+  searchConfig,
+});
 
+const onSearch = (searchValObj) => {
+  apiParmas.value = searchValObj;
+};
+
+const onTableOperate = (operateObj) => {
+  emit("operate", operateObj);
+};
 </script>
 <style lang="less" scoped>
 .schema-view {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 </style>

@@ -64,6 +64,11 @@ const props = defineProps({
    * 表格数据源 api
    */
   api: String,
+
+  /**
+   * api请求参数，请求api时携带
+   */
+  apiParmas: Object,
   /**
    * buttons 操作相关按钮配置
    */
@@ -80,7 +85,7 @@ const operationWidth = computed(() => {
     : 50;
 });
 
-const { schema, api, buttons } = toRefs(props);
+const { schema, api, apiParmas, buttons } = toRefs(props);
 const loading = ref(false);
 const tableData = ref([]);
 const currentPage = ref(1);
@@ -92,7 +97,7 @@ onMounted(() => {
 });
 
 watch(
-  [schema, api],
+  [schema, api, apiParmas],
   () => {
     initData();
   },
@@ -120,12 +125,12 @@ const fetchTableData = async () => {
   if (!api.value) {
     return;
   }
-
   showLoading();
   const res = await $curl({
     url: `${api.value}/list`,
     method: "GET",
-    params: {
+    query: {
+      ...apiParmas.value,
       page: currentPage.value,
       pageSize: pageSize.value,
     },

@@ -18,6 +18,7 @@
       ref="schemaTableRef"
       :schema="tableSchema"
       :api="api"
+      :apiParmas="apiParmas"
       :buttons="tableConfig?.rowButtons ?? []"
       @operate="operationHandler"
     >
@@ -33,7 +34,7 @@ import SchemaTable from "$widgets/schema-table/schema-table.vue";
 
 const emit = defineEmits(["operate"]);
 
-const { api, tableSchema, tableConfig } = inject("schemaViewData");
+const { api, tableSchema, tableConfig,apiParmas } = inject("schemaViewData");
 
 const schemaTableRef = ref(null);
 
@@ -42,7 +43,6 @@ const EventHandlerMap = {
 };
 const operationHandler = ({ btnConfig, rowData }) => {
   const { eventKey } = btnConfig;
-  console.log('eventKey', eventKey);
 
   
   if (EventHandlerMap[eventKey]) {

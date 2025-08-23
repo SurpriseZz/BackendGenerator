@@ -25,14 +25,37 @@ module.exports = {
                         label: '商品名称',
                         tableOption: {
                             width: 200,
+                        },
+
+                        searchOption: {
+                            comType: 'dynamicSelect',
+                            api: '/api/proj/product_enum/list'
                         }
 
                     },
-                    prive: {
+                    price: {
                         type: 'number',
                         label: '价格',
                         tableOption: {
                             width: 200
+                        },
+                        searchOption: {
+                            comType: 'select',
+                            enumList: [
+                                {
+                                    label: '全部',
+                                    value: -999
+                                },
+                                {
+                                    label: '￥39.9',
+                                    value: 39.9
+                                }, {
+                                    label: '￥199',
+                                    value: 199
+                                }, {
+                                    label: '￥699',
+                                    value: 699
+                                }]
                         }
                     },
                     inventory: {
@@ -40,12 +63,19 @@ module.exports = {
                         label: '库存',
                         tableOption: {
                             width: 200
+                        },
+                        searchOption: {
+                            comType: 'input',
+                            placeholder: '请输入商品名称'
                         }
                     },
                     create_time: {
                         type: 'string',
                         label: '创建时间',
-                        tableOption: {}
+                        tableOption: {},
+                        searchOption: {
+                            comType: 'dateRange',
+                        }
                     }
                 }
             },

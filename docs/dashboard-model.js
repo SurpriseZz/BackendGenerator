@@ -45,47 +45,49 @@
                         // 字段在 table 中的相关配置
                         tableOption:{
                             ...elTableColumnConfig, //标准的 el-table-conlumn 配置
+                            toFixed:0,
                             visiable:true, //是否在 table 中显示 默认为true，为false时不在啊表单中展示
                         },
-                        //table 相关配置
-                        tableConfig:{
-                            headerButtons:[{
-                                lable:'',//按钮中文名
-                                eventKey:'',//按钮时间名
-                                eventOption:{},//按钮事件具体配置
-                                ...elButtonConfig, //标准的 el-button 配置
-
-                            },...],
-                            rowButtons:[{
-                                lable:'',//按钮中文名
-                                eventKey:'',//按钮时间名
-                                eventOption:{
-                                    // 当 paramKey = ‘remove’
-                                    params:{
-                                        //paramKey = 参数的值
-                                        // rowValueKey = 参数值（当格式为 schema::tableKey的时候，到table种找响应的字段）
-                                        paramKey:rowValueKey
-                                    }
-
-
-                                },//按钮事件具体配置
-                                ...elButtonConfig, //标准的 el-button 配置
-                            },...]
+                        searchOption:{
+                            ...eleComponentConfig, //标准的 el-input 配置
+                            comType:'',// 配置组件类型 input/select
+                            default: ''//默认值
                         },
-                        serchOption:{},
-                        formOption:{}
-
                     }
-
-
+                    ...
                 }
-
             },
             tableConfig: {},//table相关配置
             searchConfig: {},//search相关配置
             components: {},//模块组件
         },
+        //table 相关配置
+        tableConfig:{
+            headerButtons:[{
+                lable:'',//按钮中文名
+                eventKey:'',//按钮时间名
+                eventOption:{},//按钮事件具体配置
+                ...elButtonConfig, //标准的 el-button 配置
 
+            },...],
+            rowButtons:[{
+                lable:'',//按钮中文名
+                eventKey:'',//按钮时间名
+                eventOption:{
+                    // 当 paramKey = ‘remove’
+                    params:{
+                        //paramKey = 参数的值
+                        // rowValueKey = 参数值（当格式为 schema::tableKey的时候，到table种找响应的字段）
+                        paramKey:rowValueKey
+                    }
+
+
+                },//按钮事件具体配置
+                ...elButtonConfig, //标准的 el-button 配置
+            },...]
+        },
+        serchOption:{},
+        formOption:{}
 
     }, ...]
 

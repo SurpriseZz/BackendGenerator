@@ -13,9 +13,9 @@ module.exports = (app) => {
 
 
         getList(ctx) {
-            const { page, size } = ctx.request.query;
+            const { product_name: productName, page, size } = ctx.request.query;
 
-            this.success(ctx, [{
+            let productList = [{
                 product_id: '1',
                 product_name: `${ctx.projKey} - 《大前端面试宝典》`,
                 price: 39.9,
@@ -34,11 +34,34 @@ module.exports = (app) => {
                 inventory: 9999,
                 create_time: '2023-01-01 11:22:00'
 
-            }], {
+            }]
+            if (productName && productName !== 'all') {
+                productList = productList.filter(item => item.product_name === productName)
+            }
+
+            this.success(ctx, productList, {
                 total: 3,
                 page,
                 size
             })
+        }
+
+        getProductEnumList(ctx) {
+            this.success(ctx, [
+                {
+                    label: '全部',
+                    value: 'all',
+                },
+                {
+                    label: `${ctx.projKey} - 《大前端面试宝典》`,
+                    value: `${ctx.projKey} - 《大前端面试宝典》`,
+                }, {
+                    label: `${ctx.projKey} - 《前端求职之道》`,
+                    value: `${ctx.projKey} - 《前端求职之道》`,
+                }, {
+                    label: `${ctx.projKey} - 《大前端全栈实践》`,
+                    value: `${ctx.projKey} - 《大前端全栈实践》`,
+                }])
         }
     }
 

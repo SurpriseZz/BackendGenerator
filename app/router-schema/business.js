@@ -16,7 +16,6 @@ module.exports = {
         }
     },
     '/api/proj/product':{
-
         delete:{
             body:{
                 type:'object',
@@ -28,5 +27,9 @@ module.exports = {
                 required:['product_id']
             }
         }
+    },
+    '/api/proj/product_enum/list':{
+        get:{}
     }
+
 }
