@@ -46,6 +46,7 @@ const operationHandler = ({ btnConfig, rowData }) => {
 
   
   if (EventHandlerMap[eventKey]) {
+    
     EventHandlerMap[eventKey]({ btnConfig, rowData });
   } else {
     emit("operate", { btnConfig, rowData });
