@@ -2,8 +2,8 @@
   <el-drawer
     v-model="isShow"
     direction="rtl"
-    :destroy-on-close="true"
-    :size="500"
+    :destory-on-close="true"
+    :size="550"
   >
     <template #header>
       <h3 class="title">{{ title }}</h3>
@@ -12,6 +12,7 @@
       <schema-form
         v-loading="loading"
         :schema="components[name]?.schema"
+        :model="dtoModel"
         ref="schemaFormRef"
       ></schema-form>
     </template>
@@ -19,8 +20,8 @@
       <el-button type="primary" @click="save">
         {{ saveBtnText }}
       </el-button>
-    </template> </el-drawer
-  >
+    </template>
+  </el-drawer>
 </template>
 
 <script setup>
@@ -32,42 +33,73 @@ import SchemaForm from "$widgets/schema-form/schema-form.vue";
 const { api, components } = inject("schemaViewData");
 
 const emit = defineEmits(["command"]);
-const name = ref("createForm");
+
+const name = ref("editForm");
 
 const schemaFormRef = ref(null);
-const isShow = ref(false);
 const loading = ref(false);
+const isShow = ref(false);
 const title = ref("");
 const saveBtnText = ref("");
-const show = () => {
+const mainKey = ref("");
+const mainValue = ref("");
+const dtoModel = ref({});
+const show = (rowData) => {
   const { config } = components.value[name.value];
 
   title.value = config.title;
   saveBtnText.value = config.saveBtnText;
+  mainKey.value = config.mainKey; //表单主键
+  mainValue.value = rowData[config.mainKey];
+  dtoModel.value = {};
 
   isShow.value = true;
+
+  fetchFormData();
 };
 
-const close = () => {
-  isShow.value = false;
+const fetchFormData = async () => {
+  if (loading.value) {
+    return;
+  }
+
+  loading.value = true;
+  const res = await $curl({
+    method: "get",
+    url: api.value,
+    query: {
+      [mainKey.value]: mainValue.value,
+    },
+  });
+  loading.value = false;
+
+  if (!res || !res.success || !res.data) {
+    return;
+  }
+
+  dtoModel.value = res.data;
 };
 
+
+const close = () => { 
+    isShow.value = false;
+};
 const save = async () => {
-  if(loading.value){return;}
-  // 校验表单
+  if (loading.value) {
+    return;
+  }
   if (!schemaFormRef.value.validate()) {
     return;
   }
   loading.value = true;
-
   const res = await $curl({
-    method: "post",
+    method: "put",
     url: api.value,
     data: {
-      ...schemaFormRef.value.getFormData(),
+      [mainKey.value]: mainValue.value,
+      ...schemaFormRef.value.getValue(),
     },
   });
-
   loading.value = false;
 
   if (!res || !res.success) {
@@ -75,17 +107,18 @@ const save = async () => {
   }
 
   ElNotification({
-    title: "创建成功",
-    message: "创建成功",
+    title: "修改成功",
+    message: "修改成功",
     type: "success",
   });
 
   close();
-
   emit("command", {
     event: "loadTableData",
   });
+
 };
+
 defineExpose({
   name,
   show,

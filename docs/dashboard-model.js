@@ -46,7 +46,7 @@
                         tableOption:{
                             ...elTableColumnConfig, //标准的 el-table-conlumn 配置
                             toFixed:0,
-                            visiable:true, //是否在 table 中显示 默认为true，为false时不在啊表单中展示
+                            visible:true, //是否在 table 中显示 默认为true，为false时不在啊表单中展示
                         },
                         searchOption:{
                             ...eleComponentConfig, //标准的 el-input 配置

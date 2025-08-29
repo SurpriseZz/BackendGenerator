@@ -8,7 +8,7 @@
     >
       <template v-for="(schemaItem, key) in schema.properties">
         <el-table-column
-          v-if="schemaItem.option.visiable !== false"
+          v-if="schemaItem.option.visible !== false"
           :key="key"
           :prop="key"
           :label="schemaItem.label"

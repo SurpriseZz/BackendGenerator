@@ -79,9 +79,18 @@ function showComponent({ btnConfig, rowData }) {
     console.error(`找不到组件${comName}`);
     return;
   }
-
+  
   comRef.show(rowData);
 }
+
+// 响应组件事件
+const onComponentCommand = (data) => { 
+
+  const {event} = data;
+  if(event === 'loadTableData'){
+    tablePanelRef.value.loadTableData();
+  }
+};
 </script>
 <style lang="less" scoped>
 .schema-view {
