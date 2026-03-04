@@ -1,0 +1,47 @@
+import {createApp} from "vue";
+// 引入elementUI
+import ElementUI from 'element-plus'
+import 'element-plus/theme-chalk/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
+import './asserts/custom.css'
+import pinia from '$elpisStore'
+
+import { createRouter, createWebHistory} from 'vue-router'
+
+/**
+ * vue 页面主入口 用于启动vue
+ * @param pageComponent
+ * @param routes 路由
+ * @param libs 开发依赖的第三方包
+ */
+export default (pageComponent, {routes, libs} = {}) => {
+    const app = createApp(pageComponent);
+
+    // 应用ElementUI
+    app.use(ElementUI);
+
+    // 引入pinia
+    app.use(pinia)
+    // 引入第三方包
+    if (libs && libs.length) {
+        for (let i = 0; i < libs.length; i++) {
+            app.use(libs[i]);
+        }
+    }
+
+    if (routes && routes.length) {
+        // 页面路由
+        const router = createRouter({
+            history: createWebHistory(),//利用history 模式
+            routes
+        })
+        app.use(router)
+        router.isReady().then(() => {
+            app.mount('#root');
+        })
+    } else {
+        app.mount('#root');
+    }
+
+};
