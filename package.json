@@ -1,5 +1,5 @@
 {
-  "name": "backend-generator",
+  "name": "@eustis/backend-generator",
   "version": "1.0.0",
   "description": "一个企业级的项目",
   "main": "index.js",
