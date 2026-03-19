@@ -42,7 +42,9 @@ module.exports = (app) => {
       const { product_id: productId } = ctx.request.query;
       await sleep(1);
       const productList = this.getProductList(ctx);
-      const productItem = productList.find(item => item.product_id === productId);
+      const productItem = productList.find(
+        (item) => item.product_id === productId
+      );
 
       this.success(ctx, productItem);
     }
@@ -75,46 +77,46 @@ module.exports = (app) => {
       });
     }
 
-   getProductEnumList(ctx) {
+    getProductEnumList(ctx) {
       this.success(ctx, [
         {
           label: "全部",
           value: "all",
         },
         {
-          label: `${ctx.projKey} - 《大前端面试宝典》`,
-          value: `${ctx.projKey} - 《大前端面试宝典》`,
+          label: `${ctx.projKey} - 《水果》`,
+          value: `${ctx.projKey} - 《水果》`,
         },
         {
-          label: `${ctx.projKey} - 《前端求职之道》`,
-          value: `${ctx.projKey} - 《前端求职之道》`,
+          label: `${ctx.projKey} - 《西瓜》`,
+          value: `${ctx.projKey} - 《西瓜》`,
         },
         {
-          label: `${ctx.projKey} - 《大前端全栈实践》`,
-          value: `${ctx.projKey} - 《大前端全栈实践》`,
+          label: `${ctx.projKey} - 《香蕉》`,
+          value: `${ctx.projKey} - 《香蕉》`,
         },
       ]);
     }
 
-     getProductList(ctx) {
+    getProductList(ctx) {
       return [
         {
           product_id: "1",
-          product_name: `${ctx.projKey} - 《大前端面试宝典》`,
+          product_name: `${ctx.projKey} - 《水果》`,
           price: 39.9,
           inventory: 9999,
           create_time: "2023-01-01 10:55:00",
         },
         {
           product_id: "2",
-          product_name: `${ctx.projKey} - 《前端求职之道》`,
+          product_name: `${ctx.projKey} - 《西瓜》`,
           price: 199,
           inventory: 9999,
           create_time: "2023-01-01 13:22:00",
         },
         {
           product_id: "3",
-          product_name: `${ctx.projKey} - 《大前端全栈实践》`,
+          product_name: `${ctx.projKey} - 《香蕉》`,
           price: 699,
           inventory: 9999,
           create_time: "2023-01-01 11:22:00",

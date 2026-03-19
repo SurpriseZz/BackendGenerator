@@ -41,7 +41,7 @@ defineProps({
   title: String,
 });
 
-const userName = ref("一只懒羊");
+const userName = ref("木头");
 const handleUserCommand = function (event) {
   console.log("event", event);
 };
@@ -82,12 +82,12 @@ const handleUserCommand = function (event) {
           border-radius: 50%;
         }
         .user-name {
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            height: 60px;
-            line-height: 60px;
-            outline: none;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          height: 60px;
+          line-height: 60px;
+          outline: none;
         }
       }
     }

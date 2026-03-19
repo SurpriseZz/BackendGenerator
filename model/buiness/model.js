@@ -41,7 +41,7 @@ module.exports = {
               },
               createFormOption: {
                 comType: "input",
-                default: "哲玄新课程",
+                default: "木头",
               },
               editFormOption: {
                 comType: "input",

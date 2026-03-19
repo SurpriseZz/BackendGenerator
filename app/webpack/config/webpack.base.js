@@ -44,16 +44,22 @@ module.exports = {
                 path.resolve(process.cwd(), './app/pages')
             ],
             use: {
-                loader: "babel-loader"
+                loader: "babel-loader",
+                options: {
+                    cacheDirectory: true,
+                    cacheCompression: false
+                }
             }
         }, {
             test: /\.(png|jpe?g|gif)(\?.+)?$/,
-            use: {
-                loader: "url-loader",
-                options: {
-                    limit: 300,
-                    esModule: false
+            type: "asset",
+            parser: {
+                dataUrlCondition: {
+                    maxSize: 300
                 }
+            },
+            generator: {
+                filename: "images/[name]_[contenthash:8][ext]"
             }
         }, {
             test: /\.css$/,
@@ -63,7 +69,10 @@ module.exports = {
             use: ['style-loader', 'css-loader', 'less-loader']
         }, {
             test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-            use: 'file-loader'
+            type: "asset/resource",
+            generator: {
+                filename: "fonts/[name]_[contenthash:8][ext]"
+            }
         }]
 
     },
