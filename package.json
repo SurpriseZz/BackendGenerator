@@ -1,6 +1,6 @@
 {
   "name": "@eustis/backend-generator",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "一个企业级的项目",
   "main": "index.js",
   "scripts": {
